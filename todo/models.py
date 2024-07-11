@@ -13,5 +13,4 @@ class Task(models.Model):
     def is_overdue(self, dt):
         if self.due_at is None:
             return False
-        else:
-            return self.due_at < dt
+        return self.due_at < dt
