@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: task-book-for-f**king-lazy
+    name: task-book-for-lazy-student
     env: python
     plan: free
     branch: main
