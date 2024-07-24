@@ -69,3 +69,13 @@ def close(request, task_id):
     task.completed = True
     task.save()
     return redirect(index)
+
+
+def like(request, task_id):
+    try:
+        task = Task.objects.get(pk=task_id)
+        task.like += 1
+        task.save()
+    except Task.DoesNotExist:
+        raise Http404("Task does not exist")
+    return redirect(detail, task_id)
