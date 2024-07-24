@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <p>
+      <label for="iniad-id">Your ID</label>
+      <input id="iniad-id" type="text">
+    </p>
+    <p>
+      <label for="iniad-pw">Your Password</label>
+      <input id="iniad-pw" type="password">
+    </p>
     <h1>{{ task.title }}</h1>
     <ul>
       <li>Posted at: {{ task.posted_at }}</li>
@@ -28,8 +36,17 @@
       | <a href="{% url 'like' task.id %}">Like</a>
       | <a href="{% url 'delete' task.id %}">Delete</a>
       | <a href="{% url 'update' task.id %}">Edit</a>
-      | <a href="{% url 'close' task.id %}">Close</a>
+      | <a onclick="openYourLockerWithoutYourPermission()">Close</a>
     </div>
+    <div class="result">
+      <p>
+        <span id="message-box"></span> <br />
+        <span id="locker-result"></span> <br />
+        <span id="locker-address"></span> <br />
+        <span id="locker-floor"></span>
+      </p>
   </body>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'todo/js/open_locker.js' %}"></script>
 </html>
