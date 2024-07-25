@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>INIAD Sensors</title>
+    <link rel="stylesheet" type="text/css" href="css/sample-api.css" />
+  </head>
+  <body>
+
+    <h1>INIAD Room Monitoring</h1>
+    <p>
+      <label for="iniad-id">INIADアカウント</label>
+      <input id="iniad-id" type="text">
+    </p>
+    <p>
+      <label for="iniad-pw">INIADパスワード</label>
+      <input id="iniad-pw" type="password">
+    </p>
+
+    <h2>教室のセンサー情報取得</h2>
+
+    <p>
+      <label for="room-number">教室番号</label>
+      <input id="room-number" type="text">
+      <button onclick="getRoomStatus()">教室の情報取得</button>
+    </p>
+
+    <div class="result">
+      <p>
+        API呼び出し結果: <span id="monitoring-result"></span> <br />
+        温度: <span id="room-temperature"></span> <br />
+        湿度: <span id="room-humidity"></span> <br />
+        気圧: <span id="room-airpressure"></span> <br />
+        照度: <span id="room-illuminance"></span>
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/iniad_api.js"></script>
+    <script type="text/javascript" src="js/room_status.js"></script>
+  </body>
+</html>
