@@ -8,17 +8,12 @@ from todo.models import Task
 
 
 def index(request):
-    if request.method == "POST":
-        if request.POST["due_at"] != "":
-            task = Task(
-                title=request.POST["title"],
-                due_at=make_aware(parse_datetime(request.POST["due_at"])),
-            )
+    if request.method == 'POST':
+        if request.POST["due_at"]:
+            due_at = make_aware(parse_datetime(request.POST["due_at"]))
         else:
-            task = Task(
-                title=request.POST["title"],
-                due_at=None,
-            )
+            due_at = None
+        task = Task(title=request.POST['title'], due_at=due_at)
         task.save()
 
     if request.GET.get("order") == "due":
